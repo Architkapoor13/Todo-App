@@ -3,22 +3,24 @@ import { StyleSheet, View, Text, FlatList, TouchableOpacity, Button } from "reac
 
 const TodoItems = ({ items, onPressHandler }) => {
     return ( 
-        <FlatList
-            style={styles.itemContainer}
-            data={items}
-            renderItem={({item}) => (
-                <View style={styles.item}>
-                    <Text style={styles.itemText}>{item.item}</Text>
-                    <Button color="red" style={styles.buttonStyle} title="Delete" onPress={()=>onPressHandler(item.key)}/> 
-                </View>
-            )}
-            
-        />
+        <View style={styles.itemContainer}>
+            <FlatList
+                data={items}
+                renderItem={({item}) => (
+                    <View style={styles.item}>
+                        <Text style={styles.itemText}>{item.item}</Text>
+                        <Button color="red" style={styles.buttonStyle} title="Delete" onPress={()=>onPressHandler(item.key)}/> 
+                    </View>
+                )}
+                
+            />
+        </View>
      );
 }
 
 const styles = StyleSheet.create({
     itemContainer: {
+        flex: 1,
         padding: 20,
         marginBottom: 30
     },
